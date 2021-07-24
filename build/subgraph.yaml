@@ -1,0 +1,27 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: C98
+    network: mainnet
+    source:
+      address: "0xae12c5930881c53715b369cec7606b70d8eb229f"
+      abi: C98
+      startBlock: 12891225
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - UserCounter
+        - TransferCounter
+        - TokenInfo
+      abis:
+        - name: C98
+          file: C98/abis/C98.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: C98/C98.wasm

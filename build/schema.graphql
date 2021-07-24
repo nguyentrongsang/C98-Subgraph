@@ -1,0 +1,24 @@
+type User @entity {
+  id: ID!
+  address: String!
+  balanceGwei: BigInt!
+  transactionCount: Int!
+}
+
+type UserCounter @entity {
+  id: ID!
+  count: Int!
+}
+
+type TransferCounter @entity {
+  id: ID!
+  count: Int!
+  totalTransferredGwei: BigInt!
+}
+
+type TokenInfo @entity {
+  id: ID!
+  name: String!
+  symbol: String!
+  totalSupplyGwei: BigInt!
+}
